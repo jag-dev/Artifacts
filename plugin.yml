@@ -1,0 +1,81 @@
+name: Artifacts
+version: 1.6
+main: net.JaG.artifacts.Main
+author: JaG
+description: Artifacts
+commands:
+  artifact:
+    description: Artifact Base Command
+permissions:
+    artifacts.*: 
+        description: All artifact commands
+        children:
+            artifacts.use: true
+            artifacts.admin: true
+            artifacts.effects: true
+    artifacts.use:
+        description: Allows use of artifacts
+        default: op
+    artifacts.admin:
+        description: Allows use of admin commands
+        default: op
+    artifacts.effects:
+        description: Access to all custom effects
+        default: op
+        children:
+            artifacts.effect.ninja: true
+            artifacts.effect.rebound: true
+            artifacts.effect.haunt: true
+            artifacts.effect.friend: true
+            artifacts.effect.bounce: true
+            artifacts.effect.dolphin: true
+            artifacts.effect.immune: true
+            artifacts.effect.escape: true
+            artifacts.effect.mercy: true
+            artifacts.effect.fat: true
+            artifacts.effect.stun: true
+            artifacts.effect.blacksmith: true
+            artifacts.effect.venom: true
+            artifacts.effect.expsteal: true
+    artifacts.effect.ninja:
+        description: Access to ninja effect
+        default: op
+    artifacts.effect.rebound:
+        description: Access to rebound effect
+        default: op
+    artifacts.effect.haunt:
+        description: Access to haunt effect
+        default: op
+    artifacts.effect.friend:
+        description: Access to friend effect
+        default: op
+    artifacts.effect.bounce:
+        description: Access to bounce effect
+        default: op
+    artifacts.effect.dolphin:
+        description: Access to dolphin effect
+        default: op
+    artifacts.effect.immune:
+        description: Access to immune effect
+        default: op
+    artifacts.effect.escape:
+        description: Access to escape effect
+        default: op
+    artifacts.effect.mercy:
+        description: Access to mercy effect
+        default: op
+    artifacts.effect.fat:
+        description: Access to fat effect
+        default: op
+    artifacts.effect.stun:
+        description: Access to stun effect
+        default: op
+    artifacts.effect.blacksmith:
+        description: Access to blacksmith effect
+        default: op
+    artifacts.effect.venom:
+        description: Access to blacksmith effect
+        default: op
+    artifacts.effect.expsteal:
+        description: Access to expsteal effect
+        default: op

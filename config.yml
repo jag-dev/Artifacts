@@ -1,0 +1,34 @@
+# For configuration help, please refer to the plugin page
+coin:
+    name: '&e&lLucky Coin'
+    id: 'DOUBLE_PLANT'
+    enabled: true
+    desc:
+    - '&7Example artifact'
+    potion_effects:
+    - NIGHT_VISION
+    custom_effects:
+    - ESCAPE
+    - MERCY
+    - REBOUND
+defense_stone:
+    name: '&f&lStone of Defense'
+    id: 'STONE'
+    enabled: true
+    desc:
+    - '&7Example artifact'
+    potion_effects:
+    - ABSORPTION
+    - DAMAGE_RESISTANCE
+    custom_effects:
+    - BOUNCE
+neptune_soul:
+    name: '&b&lNeptune Soul'
+    id: 'WATER_BUCKET'
+    enabled: true
+    desc:
+    - '&7Example artifact'
+    potion_effects:
+    - WATER_BREATHING
+    custom_effects:
+    - DOLPHIN
