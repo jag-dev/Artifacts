@@ -1,10 +1,11 @@
 name: Artifacts
-version: 1.8
+version: 1.9
 main: net.JaG.Artifacts.Artifacts
 author: JaG
 description: Artifacts
 commands:
   artifact:
+    aliases: [artifacts, artif]
     description: Artifact Base Command
 permissions:
     artifacts.*: 

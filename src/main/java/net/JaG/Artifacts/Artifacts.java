@@ -31,14 +31,16 @@
  import org.bukkit.Material;
  import org.bukkit.enchantments.Enchantment;
  import org.bukkit.entity.Player;
- import org.bukkit.event.Listener;
  import org.bukkit.inventory.ItemStack;
  import org.bukkit.inventory.meta.ItemMeta;
  import org.bukkit.plugin.Plugin;
  import org.bukkit.plugin.java.JavaPlugin;
  import org.bukkit.potion.PotionEffect;
  import org.bukkit.potion.PotionEffectType;
- 
+ /*
+  * @author JaGv
+  * @version 1.9
+  */
  public class Artifacts extends JavaPlugin {
    Artifacts m;
    public HashMap<Player, Boolean> activeUsers = new HashMap<>();
@@ -59,7 +61,7 @@
      try {
        Field f = Enchantment.class.getDeclaredField("acceptingNew");
        f.setAccessible(true);
-       f.set(null, Boolean.valueOf(true));
+       f.set(null, true);
      } catch (Exception e) {
        e.printStackTrace();
      }  
@@ -78,7 +80,7 @@
      List<String> lore = getConfig().getConfigurationSection(section).getStringList(".desc");
      ArrayList<String> colorLore = new ArrayList<>();
      for (String line : lore) colorLore.add(ChatColor.translateAlternateColorCodes('&', line)); 
-     colorLore.add(ChatColor.YELLOW + "Middle click to activate");
+     colorLore.add(ChatColor.YELLOW + "" + ChatColor.ITALIC + "Right click to toggle");
      artifactMeta.setLore(colorLore);
      artifact.setItemMeta(artifactMeta);
      
@@ -91,52 +93,52 @@
      List<String> lore = getConfig().getConfigurationSection(artifact).getStringList(".desc");
      ArrayList<String> colorLore = new ArrayList<>();
      for (String line : lore) colorLore.add(ChatColor.translateAlternateColorCodes('&', line)); 
-     colorLore.add(ChatColor.YELLOW + "Middle click to activate");
+     colorLore.add(ChatColor.YELLOW + "" + ChatColor.ITALIC + "Right click to toggle");
      artifactMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
      artifactMeta.setLore(colorLore);
      
      a.setItemMeta(artifactMeta);
-     player.getInventory().addItem(new ItemStack[] { a });
+     player.getInventory().addItem(a);
    }
    
    public void registerEffects() {
-     Bukkit.getServer().getPluginManager().registerEvents((Listener)new NinjaEffect(this), (Plugin)this);
-     Bukkit.getServer().getPluginManager().registerEvents((Listener)new BounceEffect(this), (Plugin)this);
-     Bukkit.getServer().getPluginManager().registerEvents((Listener)new ReboundEffect(this), (Plugin)this);
-     Bukkit.getServer().getPluginManager().registerEvents((Listener)new FriendEffect(this), (Plugin)this);
-     Bukkit.getServer().getPluginManager().registerEvents((Listener)new HauntEffect(this), (Plugin)this);
-     Bukkit.getServer().getPluginManager().registerEvents((Listener)new DolphinEffect(this), (Plugin)this);
-     Bukkit.getServer().getPluginManager().registerEvents((Listener)new ImmuneEffect(this), (Plugin)this);
-     Bukkit.getServer().getPluginManager().registerEvents((Listener)new EscapeEffect(this), (Plugin)this);
-     Bukkit.getServer().getPluginManager().registerEvents((Listener)new MercyEffect(this), (Plugin)this);
-     Bukkit.getServer().getPluginManager().registerEvents((Listener)new FeatherEffect(this), (Plugin)this);
-     Bukkit.getServer().getPluginManager().registerEvents((Listener)new FatEffect(this), (Plugin)this);
-     Bukkit.getServer().getPluginManager().registerEvents((Listener)new StunEffect(this), (Plugin)this);
-     Bukkit.getServer().getPluginManager().registerEvents((Listener)new StarveEffect(this), (Plugin)this);
-     Bukkit.getServer().getPluginManager().registerEvents((Listener)new BlacksmithEffect(this), (Plugin)this);
-     Bukkit.getServer().getPluginManager().registerEvents((Listener)new VenomEffect(this), (Plugin)this);
-     Bukkit.getServer().getPluginManager().registerEvents((Listener)new ExpStealEffect(this), (Plugin)this);
+     Bukkit.getServer().getPluginManager().registerEvents(new NinjaEffect(this), this);
+     Bukkit.getServer().getPluginManager().registerEvents(new BounceEffect(this), this);
+     Bukkit.getServer().getPluginManager().registerEvents(new ReboundEffect(this), this);
+     Bukkit.getServer().getPluginManager().registerEvents(new FriendEffect(this), this);
+     Bukkit.getServer().getPluginManager().registerEvents(new HauntEffect(this), this);
+     Bukkit.getServer().getPluginManager().registerEvents(new DolphinEffect(this), this);
+     Bukkit.getServer().getPluginManager().registerEvents(new ImmuneEffect(this), this);
+     Bukkit.getServer().getPluginManager().registerEvents(new EscapeEffect(this), this);
+     Bukkit.getServer().getPluginManager().registerEvents(new MercyEffect(this), this);
+     Bukkit.getServer().getPluginManager().registerEvents(new FeatherEffect(this), this);
+     Bukkit.getServer().getPluginManager().registerEvents(new FatEffect(this), this);
+     Bukkit.getServer().getPluginManager().registerEvents(new StunEffect(this), this);
+     Bukkit.getServer().getPluginManager().registerEvents(new StarveEffect(this), this);
+     Bukkit.getServer().getPluginManager().registerEvents(new BlacksmithEffect(this), this);
+     Bukkit.getServer().getPluginManager().registerEvents(new VenomEffect(this), this);
+     Bukkit.getServer().getPluginManager().registerEvents(new ExpStealEffect(this), this);
    }
    
    public static void createDefaultSettings() {
      SettingsFile.getSettings().addDefault("settings.prefix", "&cArtifacts &8&l>&7 ");
-     SettingsFile.getSettings().addDefault("settings.bounceChance", Integer.valueOf(20));
-     SettingsFile.getSettings().addDefault("settings.hauntChance", Integer.valueOf(25));
-     SettingsFile.getSettings().addDefault("settings.reboundChance", Integer.valueOf(10));
-     SettingsFile.getSettings().addDefault("settings.ninjaSeconds", Integer.valueOf(3));
-     SettingsFile.getSettings().addDefault("settings.escapeChance", Integer.valueOf(15));
-     SettingsFile.getSettings().addDefault("settings.escapeSpeedDuration", Integer.valueOf(5));
-     SettingsFile.getSettings().addDefault("settings.mercyChance", Integer.valueOf(20));
-     SettingsFile.getSettings().addDefault("settings.mercyDuration", Integer.valueOf(5));
-     SettingsFile.getSettings().addDefault("settings.stunChance", Integer.valueOf(20));
-     SettingsFile.getSettings().addDefault("settings.stunDuration", Integer.valueOf(3));
-     SettingsFile.getSettings().addDefault("settings.starveChance", Integer.valueOf(20));
-     SettingsFile.getSettings().addDefault("settings.starveLevel", Integer.valueOf(1));
-     SettingsFile.getSettings().addDefault("settings.starveDuration", Integer.valueOf(3));
-     SettingsFile.getSettings().addDefault("settings.venomChance", Integer.valueOf(20));
-     SettingsFile.getSettings().addDefault("settings.venomLevel", Integer.valueOf(1));
-     SettingsFile.getSettings().addDefault("settings.venomDuration", Integer.valueOf(10));
-     SettingsFile.getSettings().addDefault("settings.expStealChance", Integer.valueOf(20));
+     SettingsFile.getSettings().addDefault("settings.bounceChance", 20);
+     SettingsFile.getSettings().addDefault("settings.hauntChance", 25);
+     SettingsFile.getSettings().addDefault("settings.reboundChance", 10);
+     SettingsFile.getSettings().addDefault("settings.ninjaSeconds", 3);
+     SettingsFile.getSettings().addDefault("settings.escapeChance", 15);
+     SettingsFile.getSettings().addDefault("settings.escapeSpeedDuration", 5);
+     SettingsFile.getSettings().addDefault("settings.mercyChance", 20);
+     SettingsFile.getSettings().addDefault("settings.mercyDuration", 5);
+     SettingsFile.getSettings().addDefault("settings.stunChance", 20);
+     SettingsFile.getSettings().addDefault("settings.stunDuration", 3);
+     SettingsFile.getSettings().addDefault("settings.starveChance", 20);
+     SettingsFile.getSettings().addDefault("settings.starveLevel", 1);
+     SettingsFile.getSettings().addDefault("settings.starveDuration", 3);
+     SettingsFile.getSettings().addDefault("settings.venomChance", 20);
+     SettingsFile.getSettings().addDefault("settings.venomLevel", 1);
+     SettingsFile.getSettings().addDefault("settings.venomDuration", 10);
+     SettingsFile.getSettings().addDefault("settings.expStealChance", 20);
    }
 
 
@@ -229,7 +231,7 @@
 			if (checkForActiveItems(p)) return;  
 			this.activeUsers.remove(p);
      } else {
-       this.activeUsers.put(p, Boolean.valueOf(true));
+       this.activeUsers.put(p, true);
      } 
    }
 	

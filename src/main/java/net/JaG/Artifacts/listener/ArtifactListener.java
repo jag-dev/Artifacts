@@ -51,8 +51,8 @@
    
    @EventHandler
    public void artifactToggle(InventoryClickEvent e) {
-     if (e.getClickedInventory() == null || e.getCurrentItem() == null)
-       return;  if (e.getClick().equals(ClickType.MIDDLE)) {
+     if (e.getClickedInventory() == null || e.getCurrentItem() == null) return;
+     if (e.getClick().equals(ClickType.RIGHT) || e.getClick().equals(ClickType.SHIFT_RIGHT)) {
        if (e.getClickedInventory().getType().equals(InventoryType.PLAYER) && !e.getCurrentItem().getType().equals(Material.AIR)) {
          Player p = (Player)e.getWhoClicked();
          String prefix = ChatColor.translateAlternateColorCodes('&', SettingsFile.getSettings().getConfigurationSection("settings").getString("prefix"));
@@ -99,7 +99,8 @@
            }
          
          } 
-       } 
+       }
+       e.setCancelled(true);
      } else if (e.getClickedInventory().getType().equals(InventoryType.PLAYER) && !e.getCurrentItem().getType().equals(Material.AIR)) {
        Player p = (Player)e.getWhoClicked();
        ItemStack artifact = e.getCurrentItem();

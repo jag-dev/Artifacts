@@ -1,59 +1,54 @@
-/*    */ package net.JaG.Artifacts.effects;
-/*    */ 
-/*    */ import java.util.Random;
-/*    */ import net.JaG.Artifacts.utils.ArtifactActive;
-/*    */ import net.JaG.Artifacts.Artifacts;
-/*    */ import net.JaG.Artifacts.utils.SettingsFile;
-/*    */ import net.md_5.bungee.api.ChatColor;
-/*    */ import org.bukkit.enchantments.Enchantment;
-/*    */ import org.bukkit.entity.Player;
-/*    */ import org.bukkit.event.EventHandler;
-/*    */ import org.bukkit.event.Listener;
-/*    */ import org.bukkit.event.entity.EntityDamageByEntityEvent;
-/*    */ import org.bukkit.inventory.ItemStack;
-/*    */ import org.bukkit.inventory.meta.ItemMeta;
-/*    */ import org.bukkit.potion.PotionEffect;
-/*    */ import org.bukkit.potion.PotionEffectType;
-/*    */ 
-/*    */ public class StunEffect
-/*    */   implements Listener {
-/*    */   public StunEffect(Artifacts main) {
+ package net.JaG.Artifacts.effects;
+
+ import java.util.Random;
+ import net.JaG.Artifacts.utils.ArtifactActive;
+ import net.JaG.Artifacts.Artifacts;
+ import net.JaG.Artifacts.utils.SettingsFile;
+ import net.md_5.bungee.api.ChatColor;
+ import org.bukkit.entity.Player;
+ import org.bukkit.event.EventHandler;
+ import org.bukkit.event.Listener;
+ import org.bukkit.event.entity.EntityDamageByEntityEvent;
+ import org.bukkit.inventory.ItemStack;
+ import org.bukkit.inventory.meta.ItemMeta;
+ import org.bukkit.potion.PotionEffect;
+ import org.bukkit.potion.PotionEffectType;
+
+ public class StunEffect implements Listener {
+   Artifacts m;
+   public StunEffect(Artifacts main) {
 /* 21 */     this.m = main;
-/*    */   } Artifacts m;
-/*    */   @EventHandler
-/*    */   public void onFreeze(EntityDamageByEntityEvent e) {
-/* 25 */     if (!(e.getDamager() instanceof Player) || !(e.getEntity() instanceof Player))
-/* 26 */       return;  Player hit = (Player)e.getEntity();
-/* 27 */     if (!this.m.activeUsers.containsKey(hit))
-/* 28 */       return;  if (hit.hasPermission("artifacts.*") || hit.hasPermission("artifacts.effects") || hit.hasPermission("artifacts.effect.stun")) {
-/* 29 */       String prefix = ChatColor.translateAlternateColorCodes('&', SettingsFile.getSettings().getConfigurationSection("settings").getString("prefix"));
-/* 30 */       for (String key : this.m.getConfig().getConfigurationSection("").getKeys(false)) {
-/* 31 */         ItemStack confItem = this.m.getArtifact(key);
-/* 32 */         ItemMeta confMeta = confItem.getItemMeta();
-/* 33 */         ArtifactActive aa = new ArtifactActive(420);
-/* 34 */         confMeta.addEnchant((Enchantment)aa, 1, true);
-/* 35 */         confItem.setItemMeta(confMeta);
-/* 36 */         if (hit.getInventory().containsAtLeast(confItem, 1))
-/* 37 */           for (String effects : this.m.getConfig().getConfigurationSection(key).getStringList("custom_effects")) {
-/* 38 */             if (effects.equalsIgnoreCase("STUN")) {
-/* 39 */               Random rand = new Random();
-/* 40 */               int chance = SettingsFile.getSettings().getConfigurationSection("settings").getInt("stunChance");
-/* 41 */               int duration = SettingsFile.getSettings().getConfigurationSection("settings").getInt("stunDuration");
-/* 42 */               int value = rand.nextInt(chance);
-/* 43 */               if (value == 1 || chance == 1) {
-/* 44 */                 Player dmger = (Player)e.getDamager();
-/* 45 */                 dmger.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, duration * 20, 100));
-/* 46 */                 dmger.sendMessage(String.valueOf(prefix) + "You have been stunned by an enemy artifact");
-/*    */               } 
-/*    */             } 
-/*    */           }  
-/*    */       } 
-/*    */     } 
 /*    */   }
-/*    */ }
 
+   @EventHandler
+   public void onFreeze(EntityDamageByEntityEvent e) {
+     if (!(e.getDamager() instanceof Player) || !(e.getEntity() instanceof Player)) return;
+     Player hit = (Player)e.getEntity();
+     if (!this.m.activeUsers.containsKey(hit)) return;
 
-/* Location:              C:\Users\guidenj\Desktop\Desktop\New folder\plugins\Artifacts-v1_6.jar!\net\JaG\artifacts\effects\StunEffect.class
- * Java compiler version: 8 (52.0)
- * JD-Core Version:       1.1.3
- */
+     if (hit.hasPermission("artifacts.*") || hit.hasPermission("artifacts.effects") || hit.hasPermission("artifacts.effect.stun")) {
+       String prefix = ChatColor.translateAlternateColorCodes('&', SettingsFile.getSettings().getConfigurationSection("settings").getString("prefix"));
+       for (String key : this.m.getConfig().getConfigurationSection("").getKeys(false)) {
+         ItemStack confItem = this.m.getArtifact(key);
+         ItemMeta confMeta = confItem.getItemMeta();
+         ArtifactActive aa = new ArtifactActive(420);
+         confMeta.addEnchant(aa, 1, true);
+         confItem.setItemMeta(confMeta);
+         if (hit.getInventory().containsAtLeast(confItem, 1))
+           for (String effects : this.m.getConfig().getConfigurationSection(key).getStringList("custom_effects")) {
+             if (effects.equalsIgnoreCase("STUN")) {
+               Random rand = new Random();
+               int chance = SettingsFile.getSettings().getConfigurationSection("settings").getInt("stunChance");
+               int duration = SettingsFile.getSettings().getConfigurationSection("settings").getInt("stunDuration");
+               int value = rand.nextInt(chance);
+               if (value == 1 || chance == 1) {
+                 Player dmger = (Player)e.getDamager();
+                 dmger.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, duration * 20, 100));
+                 dmger.sendMessage(prefix + "You have been stunned by an enemy artifact");
+               }
+             }
+           }
+       }
+     }
+   }
+ }
