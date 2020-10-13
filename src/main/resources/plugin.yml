@@ -1,6 +1,6 @@
 name: Artifacts
 version: 1.6
-main: net.JaG.artifacts.Main
+main: net.JaG.Artifacts.Artifacts
 author: JaG
 description: Artifacts
 commands:

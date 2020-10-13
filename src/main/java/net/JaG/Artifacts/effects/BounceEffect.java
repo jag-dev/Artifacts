@@ -1,9 +1,9 @@
-/*    */ package net.JaG.artifacts.effects;
+/*    */ package net.JaG.Artifacts.effects;
 /*    */ 
 /*    */ import java.util.Random;
-/*    */ import net.JaG.artifacts.ArtifactActive;
-/*    */ import net.JaG.artifacts.Main;
-/*    */ import net.JaG.artifacts.SettingsFile;
+/*    */ import net.JaG.Artifacts.utils.ArtifactActive;
+/*    */ import net.JaG.Artifacts.Artifacts;
+/*    */ import net.JaG.Artifacts.utils.SettingsFile;
 /*    */ import net.md_5.bungee.api.ChatColor;
 /*    */ import org.bukkit.enchantments.Enchantment;
 /*    */ import org.bukkit.entity.Player;
@@ -15,9 +15,9 @@
 /*    */ import org.bukkit.util.Vector;
 /*    */ 
 /*    */ public class BounceEffect implements Listener {
-/*    */   Main m;
+/*    */   Artifacts m;
 /*    */   
-/*    */   public BounceEffect(Main main) {
+/*    */   public BounceEffect(Artifacts main) {
 /* 21 */     this.m = main;
 /*    */   }
 /*    */   @EventHandler

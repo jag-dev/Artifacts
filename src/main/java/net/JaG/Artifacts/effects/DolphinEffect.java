@@ -1,7 +1,7 @@
-/*    */ package net.JaG.artifacts.effects;
+/*    */ package net.JaG.Artifacts.effects;
 /*    */ 
-/*    */ import net.JaG.artifacts.ArtifactActive;
-/*    */ import net.JaG.artifacts.Main;
+/*    */ import net.JaG.Artifacts.utils.ArtifactActive;
+/*    */ import net.JaG.Artifacts.Artifacts;
 /*    */ import org.bukkit.Material;
 /*    */ import org.bukkit.block.Block;
 /*    */ import org.bukkit.enchantments.Enchantment;
@@ -14,9 +14,9 @@
 /*    */ import org.bukkit.plugin.Plugin;
 /*    */ 
 /*    */ public class DolphinEffect implements Listener {
-/*    */   public DolphinEffect(Main main) {
+/*    */   public DolphinEffect(Artifacts main) {
 /* 18 */     this.m = main;
-/*    */   } Main m;
+/*    */   } Artifacts m;
 /*    */   @EventHandler
 /*    */   public void onDolphin(PlayerMoveEvent e) {
 /* 22 */     Player p = e.getPlayer();

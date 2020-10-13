@@ -1,7 +1,7 @@
-/*    */ package net.JaG.artifacts.effects;
+/*    */ package net.JaG.Artifacts.effects;
 /*    */ 
-/*    */ import net.JaG.artifacts.ArtifactActive;
-/*    */ import net.JaG.artifacts.Main;
+/*    */ import net.JaG.Artifacts.utils.ArtifactActive;
+/*    */ import net.JaG.Artifacts.Artifacts;
 /*    */ import org.bukkit.enchantments.Enchantment;
 /*    */ import org.bukkit.entity.Player;
 /*    */ import org.bukkit.event.EventHandler;
@@ -12,9 +12,9 @@
 /*    */ 
 /*    */ public class ImmuneEffect
 /*    */   implements Listener {
-/*    */   public ImmuneEffect(Main main) {
+/*    */   public ImmuneEffect(Artifacts main) {
 /* 16 */     this.m = main;
-/*    */   } Main m;
+/*    */   } Artifacts m;
 /*    */   @EventHandler
 /*    */   public void onImmune(EntityDamageEvent e) {
 /* 20 */     if (!(e.getEntity() instanceof Player))

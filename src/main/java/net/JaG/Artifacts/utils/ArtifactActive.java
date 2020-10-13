@@ -1,4 +1,4 @@
- package net.JaG.artifacts;
+ package net.JaG.Artifacts.utils;
  import org.bukkit.enchantments.Enchantment;
  import org.bukkit.enchantments.EnchantmentTarget;
  import org.bukkit.inventory.ItemStack;
@@ -9,15 +9,20 @@
    }
    public boolean canEnchantItem(ItemStack arg0) {
      return false;
-   } public boolean conflictsWith(Enchantment arg0) {
+   }
+   public boolean conflictsWith(Enchantment arg0) {
      return false;
-   } public EnchantmentTarget getItemTarget() {
+   }
+   public EnchantmentTarget getItemTarget() {
      return null;
-   } public int getMaxLevel() {
+   }
+   public int getMaxLevel() {
      return 0;
-   } public String getName() {
+   }
+   public String getName() {
      return "Active";
-   } public int getStartLevel() {
+   }
+   public int getStartLevel() {
      return 0;
    }
  }

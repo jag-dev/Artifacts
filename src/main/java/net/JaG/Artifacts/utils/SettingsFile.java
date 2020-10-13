@@ -1,4 +1,4 @@
- package net.JaG.artifacts;
+ package net.JaG.Artifacts.utils;
  
  import java.io.File;
  import java.io.IOException;

@@ -1,8 +1,8 @@
-/*    */ package net.JaG.artifacts.effects;
+/*    */ package net.JaG.Artifacts.effects;
 /*    */ 
-/*    */ import net.JaG.artifacts.ArtifactActive;
-/*    */ import net.JaG.artifacts.Main;
-/*    */ import net.JaG.artifacts.SettingsFile;
+/*    */ import net.JaG.Artifacts.utils.ArtifactActive;
+/*    */ import net.JaG.Artifacts.Artifacts;
+/*    */ import net.JaG.Artifacts.utils.SettingsFile;
 /*    */ import net.md_5.bungee.api.ChatColor;
 /*    */ import org.bukkit.enchantments.Enchantment;
 /*    */ import org.bukkit.entity.Player;
@@ -17,9 +17,9 @@
 /*    */ import org.bukkit.scheduler.BukkitRunnable;
 /*    */ 
 /*    */ public class NinjaEffect implements Listener {
-/*    */   public NinjaEffect(Main main) {
+/*    */   public NinjaEffect(Artifacts main) {
 /* 21 */     this.m = main;
-/*    */   } Main m;
+/*    */   } Artifacts m;
 /*    */   @EventHandler
 /*    */   public void onUseNinja(PlayerToggleSneakEvent e) {
 /* 25 */     final Player p = e.getPlayer();

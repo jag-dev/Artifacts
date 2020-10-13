@@ -1,6 +1,9 @@
- package net.JaG.artifacts;
+ package net.JaG.Artifacts.cmd;
  
  import java.util.ArrayList;
+
+ import net.JaG.Artifacts.Artifacts;
+ import net.JaG.Artifacts.utils.SettingsFile;
  import net.md_5.bungee.api.ChatColor;
  import org.bukkit.Bukkit;
  import org.bukkit.command.Command;
@@ -10,9 +13,9 @@
  import org.bukkit.plugin.Plugin;
  
  public class CommandHandler implements CommandExecutor {
-   private Main m;
+   private Artifacts m;
    
-   public CommandHandler(Main main) {
+   public CommandHandler(Artifacts main) {
      this.m = main;
    } public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
      String base_cmd = ChatColor.YELLOW + "/artifact ";

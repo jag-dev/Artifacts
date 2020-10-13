@@ -1,7 +1,7 @@
-/*    */ package net.JaG.artifacts.effects;
+/*    */ package net.JaG.Artifacts.effects;
 /*    */ 
-/*    */ import net.JaG.artifacts.ArtifactActive;
-/*    */ import net.JaG.artifacts.Main;
+/*    */ import net.JaG.Artifacts.utils.ArtifactActive;
+/*    */ import net.JaG.Artifacts.Artifacts;
 /*    */ import org.bukkit.enchantments.Enchantment;
 /*    */ import org.bukkit.entity.Player;
 /*    */ import org.bukkit.event.EventHandler;
@@ -11,9 +11,9 @@
 /*    */ import org.bukkit.inventory.meta.ItemMeta;
 /*    */ 
 /*    */ public class BlacksmithEffect implements Listener {
-/*    */   public BlacksmithEffect(Main main) {
+/*    */   public BlacksmithEffect(Artifacts main) {
 /* 15 */     this.m = main;
-/*    */   } Main m;
+/*    */   } Artifacts m;
 /*    */   @EventHandler
 /*    */   public void onBlacksmith(PlayerItemDamageEvent e) {
 /* 19 */     if (!e.getItem().equals(e.getPlayer().getItemInHand()))

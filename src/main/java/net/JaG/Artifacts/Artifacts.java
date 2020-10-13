@@ -1,25 +1,31 @@
- package net.JaG.artifacts;
+ package net.JaG.Artifacts;
  
  import java.lang.reflect.Field;
  import java.util.ArrayList;
  import java.util.HashMap;
  import java.util.List;
- import net.JaG.artifacts.effects.BlacksmithEffect;
- import net.JaG.artifacts.effects.BounceEffect;
- import net.JaG.artifacts.effects.DolphinEffect;
- import net.JaG.artifacts.effects.EscapeEffect;
- import net.JaG.artifacts.effects.ExpStealEffect;
- import net.JaG.artifacts.effects.FatEffect;
- import net.JaG.artifacts.effects.FeatherEffect;
- import net.JaG.artifacts.effects.FriendEffect;
- import net.JaG.artifacts.effects.HauntEffect;
- import net.JaG.artifacts.effects.ImmuneEffect;
- import net.JaG.artifacts.effects.MercyEffect;
- import net.JaG.artifacts.effects.NinjaEffect;
- import net.JaG.artifacts.effects.ReboundEffect;
- import net.JaG.artifacts.effects.StarveEffect;
- import net.JaG.artifacts.effects.StunEffect;
- import net.JaG.artifacts.effects.VenomEffect;
+
+ import net.JaG.Artifacts.cmd.CommandHandler;
+ import net.JaG.Artifacts.effects.BlacksmithEffect;
+ import net.JaG.Artifacts.effects.BounceEffect;
+ import net.JaG.Artifacts.effects.DolphinEffect;
+ import net.JaG.Artifacts.effects.EscapeEffect;
+ import net.JaG.Artifacts.effects.ExpStealEffect;
+ import net.JaG.Artifacts.effects.FatEffect;
+ import net.JaG.Artifacts.effects.FeatherEffect;
+ import net.JaG.Artifacts.effects.FriendEffect;
+ import net.JaG.Artifacts.effects.HauntEffect;
+ import net.JaG.Artifacts.effects.ImmuneEffect;
+ import net.JaG.Artifacts.effects.MercyEffect;
+ import net.JaG.Artifacts.effects.NinjaEffect;
+ import net.JaG.Artifacts.effects.ReboundEffect;
+ import net.JaG.Artifacts.effects.StarveEffect;
+ import net.JaG.Artifacts.effects.StunEffect;
+ import net.JaG.Artifacts.effects.VenomEffect;
+ import net.JaG.Artifacts.listener.ArtifactListener;
+ import net.JaG.Artifacts.listener.UsageListener;
+ import net.JaG.Artifacts.utils.ArtifactActive;
+ import net.JaG.Artifacts.utils.SettingsFile;
  import net.md_5.bungee.api.ChatColor;
  import org.bukkit.Bukkit;
  import org.bukkit.Material;
@@ -33,8 +39,8 @@
  import org.bukkit.potion.PotionEffect;
  import org.bukkit.potion.PotionEffectType;
  
- public class Main extends JavaPlugin {
-   Main m;
+ public class Artifacts extends JavaPlugin {
+   Artifacts m;
    public HashMap<Player, Boolean> activeUsers = new HashMap<>();
    public void onEnable() {
      Bukkit.getServer().getPluginManager().registerEvents(new ArtifactListener(this), (Plugin)this);

@@ -1,4 +1,7 @@
- package net.JaG.artifacts;
+ package net.JaG.Artifacts.listener;
+ import net.JaG.Artifacts.utils.ArtifactActive;
+ import net.JaG.Artifacts.Artifacts;
+ import net.JaG.Artifacts.utils.SettingsFile;
  import net.md_5.bungee.api.ChatColor;
  import org.bukkit.Material;
  import org.bukkit.entity.Item;
@@ -16,9 +19,9 @@
  import org.bukkit.potion.PotionEffectType;
  
  public class ArtifactListener implements Listener {
-   Main m;
+   Artifacts m;
    
-   public ArtifactListener(Main main) {
+   public ArtifactListener(Artifacts main) {
      this.m = main;
    }
    ArtifactListener al;

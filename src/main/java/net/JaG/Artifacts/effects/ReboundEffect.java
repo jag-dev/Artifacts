@@ -1,9 +1,9 @@
-/*    */ package net.JaG.artifacts.effects;
+/*    */ package net.JaG.Artifacts.effects;
 /*    */ 
 /*    */ import java.util.Random;
-/*    */ import net.JaG.artifacts.ArtifactActive;
-/*    */ import net.JaG.artifacts.Main;
-/*    */ import net.JaG.artifacts.SettingsFile;
+/*    */ import net.JaG.Artifacts.utils.ArtifactActive;
+/*    */ import net.JaG.Artifacts.Artifacts;
+/*    */ import net.JaG.Artifacts.utils.SettingsFile;
 /*    */ import net.md_5.bungee.api.ChatColor;
 /*    */ import org.bukkit.enchantments.Enchantment;
 /*    */ import org.bukkit.entity.Player;
@@ -14,9 +14,9 @@
 /*    */ import org.bukkit.inventory.meta.ItemMeta;
 /*    */ 
 /*    */ public class ReboundEffect implements Listener {
-/*    */   Main m;
+/*    */   Artifacts m;
 /*    */   
-/*    */   public ReboundEffect(Main main) {
+/*    */   public ReboundEffect(Artifacts main) {
 /* 20 */     this.m = main;
 /*    */   }
 /*    */   @EventHandler
