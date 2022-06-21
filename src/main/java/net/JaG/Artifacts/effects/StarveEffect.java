@@ -17,8 +17,8 @@
  public class StarveEffect implements Listener {
    Artifacts m;
    public StarveEffect(Artifacts main) {
-/* 21 */     this.m = main;
-/*    */   }
+     this.m = main;
+   }
 
    @EventHandler
    public void onStarve(EntityDamageByEntityEvent e) {
