@@ -6,6 +6,8 @@
 
 Artifacts is built to be a game enhancing addition to any PvP or PvE server. Much like Hypixel talismans, this plugin allows you to build your own custom in-game items with potion buffs, debuffs, and custom effects made available through easy file configuration. Server commands and custom item meta allow you to offer these items through Crates, Koths, Player Shops, and many other server events of your choosing.
 
+[Download Link](https://www.mc-market.org/resources/16856/)
+
 # Usage
 
 When a player has an artifact in their inventory, they will be able to RIGHT CLICK the artifact to toggle it into an “active state”. When in an active state, the artifact will glow then the player will have all potion effects and custom effects applied. Admins can customize the item type, display name, and item lore of any artifact. There is no limit to the amount of artifacts that can be configured. Settings for custom effects can be changed in settings.yml
